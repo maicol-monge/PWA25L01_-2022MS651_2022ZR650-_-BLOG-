@@ -8,7 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 //Inyeccion por dependencia del string de conexion al contexto
 builder.Services.AddDbContext<blogContext>(options =>
     options.UseSqlServer(
-        builder.Configuration.GetConnectionString("bibliotecaDbConnection")
+        builder.Configuration.GetConnectionString("blogDbConnection")
         )
     );
 
