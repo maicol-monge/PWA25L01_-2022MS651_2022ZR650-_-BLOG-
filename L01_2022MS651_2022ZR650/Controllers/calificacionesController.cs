@@ -11,6 +11,11 @@ namespace L01_2022MS651_2022ZR650.Controllers
     {
         private readonly blogContext _blogContext;
 
+        public calificacionesController(blogContext blogContext)
+        {
+            _blogContext = blogContext;
+        }
+
         [HttpGet]
         [Route("ObtenerCalificaciones")]
         public IActionResult Get()
