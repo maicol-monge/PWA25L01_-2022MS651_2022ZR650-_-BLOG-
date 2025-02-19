@@ -124,8 +124,18 @@ namespace L01_2022MS651_2022ZR650.Controllers
             var autor = (from uu in _blogContexto.usuarios
                          join rr in _blogContexto.roles
                               on uu.rolId equals rr.rolId
-                         where rr.rol == rol
-                         select uu).ToList();
+                         where rr.rol.Contains(rol)
+                         select new
+                         {
+                             uu.usuarioId,
+                             uu.rolId,
+                             rr.rol,
+                             uu.nombreUsuario,
+                             uu.clave,
+                             uu.nombre,
+                             uu.apellido
+                             
+                         }).ToList();
 
             if (autor == null)
             {
